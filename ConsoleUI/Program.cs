@@ -31,8 +31,8 @@ namespace ConsoleUI
                     Console.WriteLine(colors.ColorName);
                 }
 
-                carManager.Add(new Car{ BrandId = 1, ColorId = 2, DailyPrice = -300, ModelYear = "2021", Description = "Otomatik Dizel" });
-                brandManager.Add(new Brand { BrandName = "a" });
+                carManager.Add(new Car{CarId = 1,BrandId = 1, ColorId = 2, DailyPrice = 55000, ModelYear = "1968", Description = "Camarro" });
+                
                 
         }
         
