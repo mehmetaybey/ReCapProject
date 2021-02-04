@@ -1,0 +1,6 @@
+﻿CREATE TABLE Color
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [ColorId] INT NOT NULL, 
+    [CarName] TEXT NOT NULL
+)
