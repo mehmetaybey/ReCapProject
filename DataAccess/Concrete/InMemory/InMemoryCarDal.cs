@@ -11,16 +11,16 @@ namespace DataAccess.Concrete.InMemory
     public class InMemoryCarDal : ICarDal
     {
         
-            List<Car> _cars;
+        List<Car> _cars;
         public InMemoryCarDal()
         {
             _cars = new List<Car>
             {
-                new Car{CarId=1, BrandId=1, ColorId="#000000", ModelYear=1965, DailyPrice=40000, Description="Shelby Mustang"},
-                new Car{CarId=2, BrandId=1, ColorId="#1c1c1c", ModelYear=1957, DailyPrice=250000, Description="GWA Ferrari 340."},
-                new Car{CarId=3, BrandId=2, ColorId="#1c0f45", ModelYear=1953, DailyPrice=25000, Description="Chevrolet Corvette."},
-                new Car{CarId=4, BrandId=3, ColorId="#cd5555", ModelYear=1952, DailyPrice=50000, Description="Cadillac Eldorado."},
-                new Car{CarId=5, BrandId=3, ColorId="#8b0000", ModelYear=1960, DailyPrice=350000, Description="Ford Mustang Elanor"},
+                new Car{CarId=1, BrandId=1, ColorId=10, ModelYear="1965", DailyPrice=40000, Description="Shelby Mustang"},
+                new Car{CarId=2, BrandId=1, ColorId=11, ModelYear="1957", DailyPrice=250000, Description="GWA Ferrari 340."},
+                new Car{CarId=3, BrandId=2, ColorId=12, ModelYear="1953", DailyPrice=25000, Description="Chevrolet Corvette."},
+                new Car{CarId=4, BrandId=3, ColorId=13, ModelYear="1952", DailyPrice=50000, Description="Cadillac Eldorado."},
+                new Car{CarId=1, BrandId=3, ColorId=14, ModelYear="1960", DailyPrice=350000, Description="Ford Mustang Elanor"},
             };
         }
         public void Add(Car car)

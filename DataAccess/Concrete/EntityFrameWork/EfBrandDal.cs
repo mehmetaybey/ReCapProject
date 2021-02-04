@@ -13,7 +13,7 @@ namespace DataAccess.Concrete.EntityFrameWork
     {
         public void Add(Brand entity)
         {
-            using (ReCapContext context=new ReCapContext())
+            using (ReCapDal context=new ReCapDal())
             {
                 var addedEntity = context.Entry(entity);
                 addedEntity.State = EntityState.Added;
@@ -23,7 +23,7 @@ namespace DataAccess.Concrete.EntityFrameWork
 
         public void Delete(Brand entity)
         {
-            using (ReCapContext context = new ReCapContext())
+            using (ReCapDal context = new ReCapDal())
             {
                 var deletedEntity = context.Entry(entity);
                 deletedEntity.State = EntityState.Deleted;
@@ -33,7 +33,7 @@ namespace DataAccess.Concrete.EntityFrameWork
 
         public Brand Get(Expression<Func<Brand, bool>> filter)
         {
-            using (ReCapContext context = new ReCapContext())
+            using (ReCapDal context = new ReCapDal())
             {
                 return context.Set<Brand>().SingleOrDefault(filter);
             }
@@ -41,7 +41,7 @@ namespace DataAccess.Concrete.EntityFrameWork
 
         public List<Brand> GetAll(Expression<Func<Brand, bool>> filter = null)
         {
-            using (ReCapContext context = new ReCapContext())
+            using (ReCapDal context = new ReCapDal())
             {
                 return filter == null
                     ? context.Set<Brand>().ToList()
@@ -52,7 +52,7 @@ namespace DataAccess.Concrete.EntityFrameWork
 
         public void Update(Brand entity)
         {
-            using (ReCapContext context = new ReCapContext())
+            using (ReCapDal context = new ReCapDal())
             {
                 var updateEntity = context.Entry(entity);
                 updateEntity.State = EntityState.Modified;

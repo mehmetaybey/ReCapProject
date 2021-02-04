@@ -13,7 +13,7 @@ namespace DataAccess.Concrete.EntityFrameWork
     {
         public void Add(Color entity)
         {
-            using (ReCapContext context = new ReCapContext())
+            using (ReCapDal context = new ReCapDal())
             {
                 var addedEntity = context.Entry(entity);
                 addedEntity.State = EntityState.Added;
@@ -23,7 +23,7 @@ namespace DataAccess.Concrete.EntityFrameWork
 
         public void Delete(Color entity)
         {
-            using (ReCapContext context = new ReCapContext())
+            using (ReCapDal context = new ReCapDal())
             {
                 var deletedEntity = context.Entry(entity);
                 deletedEntity.State = EntityState.Deleted;
@@ -34,7 +34,7 @@ namespace DataAccess.Concrete.EntityFrameWork
 
         public Color Get(Expression<Func<Color, bool>> filter)
         {
-            using (ReCapContext context = new ReCapContext())
+            using (ReCapDal context = new ReCapDal())
 
             {
                 return context.Set<Color>().SingleOrDefault(filter);
@@ -44,7 +44,7 @@ namespace DataAccess.Concrete.EntityFrameWork
 
         public List<Color> GetAll(Expression<Func<Color, bool>> filter = null)
         {
-            using (ReCapContext context=new ReCapContext())
+            using (ReCapDal context=new ReCapDal())
             {
                 return filter == null
                     ? context.Set<Color>().ToList()
@@ -54,7 +54,7 @@ namespace DataAccess.Concrete.EntityFrameWork
 
         public void Update(Color entity)
         {
-            using (ReCapContext context =new ReCapContext())
+            using (ReCapDal context =new ReCapDal())
             {
                 var updateEntity = context.Entry(entity);
                 updateEntity.State = EntityState.Modified;
