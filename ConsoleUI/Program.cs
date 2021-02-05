@@ -18,12 +18,12 @@ namespace ConsoleUI
 
                 foreach (var cars in carManager.GetAll())
                 {
-                    Console.WriteLine(cars.Description);
+                    Console.WriteLine(cars.CarId +" "+ cars.BrandId + " " + cars.ColorId + " " + cars.ModelYear + " " + cars.DailyPrice + " " + cars.Description);
                 }
 
-                foreach (var brands in brandManager.GetAll())
+                foreach (var brands in brandManager.GetCarsByBrandId(1))
                 {
-                    Console.WriteLine(brands.BrandName);
+                    Console.WriteLine(brands.BrandId + " Marka eklendi" );
                 }
 
                 foreach (var colors in colorManager.GetAll())
@@ -31,10 +31,12 @@ namespace ConsoleUI
                     Console.WriteLine(colors.ColorName);
                 }
 
-                carManager.Add(new Car{CarId = 1,BrandId = 1, ColorId = 2, DailyPrice = 55000, ModelYear = "1968", Description = "Camarro" });
+                carManager.Add(new Car {CarId = 1, BrandId = 1, ColorId = 2, DailyPrice = 55000, ModelYear = "1968", Description = "Camarro"});
                 
-                
-        }
+                brandManager.Add(new Brand{BrandId = 10,BrandName = "Ford"});
+
+                colorManager.Add(new Color{ColorId = 12,ColorName = "Metalik Siyah"});
+             }
         
     }
 }
