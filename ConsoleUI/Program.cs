@@ -1,6 +1,7 @@
 ﻿using Bussines.Concrete;
 using DataAccess.Concrete.InMemory;
 using System;
+using Bussines.Abstract;
 using DataAccess.Concrete.EntityFrameWork;
 using Entity.Concrete;
 
@@ -16,27 +17,30 @@ namespace ConsoleUI
                 CarManager carManager = new CarManager(new EfCarDal());
                 ColorManager colorManager = new ColorManager(new EfColorDal());
 
-                foreach (var cars in carManager.GetAll())
-                {
-                    Console.WriteLine(cars.CarId +" "+ cars.BrandId + " " + cars.ColorId + " " + cars.ModelYear + " " + cars.DailyPrice + " " + cars.Description);
-                }
+               foreach (var cars in carManager.GetCarDetails())
+               {
+                   Console.WriteLine(cars.CarName +"/"+ cars.BrandName + "/" + cars.DailyPrice + "//" +cars.ColorName);
+               }
 
-                foreach (var brands in brandManager.GetCarsByBrandId(1))
-                {
-                    Console.WriteLine(brands.BrandId + " Marka eklendi" );
-                }
+               //* foreach (var brands in brandManager.GetCarsByBrandId(2))
+               // {
+               //    Console.WriteLine(brands.BrandName + " Marka eklendi");
+               // }*/
 
-                foreach (var colors in colorManager.GetAll())
-                {
-                    Console.WriteLine(colors.ColorName);
-                }
+               // foreach (var colors in colorManager.GetAll())
+               // {
+               //     Console.WriteLine(colors.ColorName);
+               // }
 
-                carManager.Add(new Car {CarId = 1, BrandId = 1, ColorId = 2, DailyPrice = 55000, ModelYear = "1968", Description = "Camarro"});
+               // carManager.Add(new Car {BrandId = 3,ColorId = 8, DailyPrice = 775000, ModelYear = "1968", Description = "Camaro Coupe"});
                 
-                brandManager.Add(new Brand{BrandId = 10,BrandName = "Ford"});
+               // brandManager.Add(new Brand{BrandName = "Chevrolet"});
 
-                colorManager.Add(new Color{ColorId = 12,ColorName = "Metalik Siyah"});
-             }
+               // colorManager.Add(new Color{ColorName = "Metalik Siyah"});
+
+               
+
+            }
         
     }
 }

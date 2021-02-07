@@ -2,6 +2,7 @@
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFrameWork;
 using Entity.Concrete;
+using Entity.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,14 +20,14 @@ namespace Bussines.Concrete
         
         public void Add(Car car)
         {
-            if (car.DailyPrice > 0)
+            if (car.DailyPrice > 450000)
             {
                 _carDal.Add(car);
                 Console.WriteLine("Araba eklendi.");
             }
             else
             {
-                Console.WriteLine("Günlük fiyatı 0 dan fazla olmalıdır. :"+ car.DailyPrice);
+                Console.WriteLine("Araç Eklenmedi aracın fiyatı 450000 dan fazla olmalıdır. :"+ car.DailyPrice);
             }
         }
 
@@ -42,7 +43,7 @@ namespace Bussines.Concrete
 
         public List<Car> GetAllByBrandId(int id)
         {
-            return _carDal.GetAll(c=>c.BrandId==id);
+            return _carDal.GetAll(c=>c.CarId==id);
         }
 
         public List<Car> GetByDailyPrice(decimal min, decimal max)
@@ -54,6 +55,11 @@ namespace Bussines.Concrete
         public Car GetById(int id)
         {
             return _carDal.Get(c => c.CarId == id);
+        }
+
+        public List<CarDetailDto> GetCarDetails()
+        {
+            return _carDal.GetCarDetails();
         }
 
         public void Update(Car car)

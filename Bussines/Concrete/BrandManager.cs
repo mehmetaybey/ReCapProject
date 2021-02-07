@@ -21,7 +21,7 @@ namespace Bussines.Concrete
             if (brand.BrandName.Length > 2)
             {
                 _brandDal.Add(brand);
-                Console.WriteLine("Marka eklendi.");
+                Console.WriteLine(brand.BrandName+ " Marka eklendi.");
             }
             else
             {

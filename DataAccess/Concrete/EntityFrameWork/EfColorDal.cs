@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using Core.DataAccess.EntityFramework;
 using DataAccess.Abstract;
 using Entity.Concrete;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Concrete.EntityFrameWork
 {
-    public class EfColorDal : IColorDal
+    public class EfColorDal : EfEntityRepositoryBase<Color, ReCapContext>, IColorDal
     {
         public void Add(Color entity)
         {
-            using (ReCapDal context = new ReCapDal())
+            using (ReCapContext context = new ReCapContext())
             {
                 var addedEntity = context.Entry(entity);
                 addedEntity.State = EntityState.Added;
@@ -23,7 +24,7 @@ namespace DataAccess.Concrete.EntityFrameWork
 
         public void Delete(Color entity)
         {
-            using (ReCapDal context = new ReCapDal())
+            using (ReCapContext context = new ReCapContext())
             {
                 var deletedEntity = context.Entry(entity);
                 deletedEntity.State = EntityState.Deleted;
@@ -34,7 +35,7 @@ namespace DataAccess.Concrete.EntityFrameWork
 
         public Color Get(Expression<Func<Color, bool>> filter)
         {
-            using (ReCapDal context = new ReCapDal())
+            using (ReCapContext context = new ReCapContext())
 
             {
                 return context.Set<Color>().SingleOrDefault(filter);
@@ -44,7 +45,7 @@ namespace DataAccess.Concrete.EntityFrameWork
 
         public List<Color> GetAll(Expression<Func<Color, bool>> filter = null)
         {
-            using (ReCapDal context=new ReCapDal())
+            using (ReCapContext context=new ReCapContext())
             {
                 return filter == null
                     ? context.Set<Color>().ToList()
@@ -54,7 +55,7 @@ namespace DataAccess.Concrete.EntityFrameWork
 
         public void Update(Color entity)
         {
-            using (ReCapDal context =new ReCapDal())
+            using (ReCapContext context =new ReCapContext())
             {
                 var updateEntity = context.Entry(entity);
                 updateEntity.State = EntityState.Modified;

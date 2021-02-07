@@ -8,11 +8,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Concrete.EntityFrameWork
 {
-    public class ReCapDal:DbContext 
+    public class ReCapContext:DbContext 
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(connectionString: @"Server=(localdb)\MSSQLLocalDB;Database=ReCapData;Trusted_Connection=true");
+            base.OnConfiguring(optionsBuilder);
         }
 
         public DbSet<Car> Cars { get; set; }
